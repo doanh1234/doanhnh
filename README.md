@@ -1,39 +1,64 @@
-# URL Stringify Project
+# URL Stringify API
 
-Dự án Node.js đơn giản để lấy nội dung từ một URL và chuyển đổi thành chuỗi JSON.
+API Node.js để fetch và stringify nội dung từ URL, hỗ trợ cả CLI và REST API endpoints.
 
 ## Cài đặt
 
 ```bash
-cd /Users/doanhnh/CascadeProjects/url-stringify-project
 npm install
 ```
 
 ## Sử dụng
 
-### Với URL mặc định (https://media.hth4nh.eu.org/nguonc):
+### CLI Mode
+
+Chạy với URL mặc định:
 ```bash
 npm start
 ```
 
-### Với URL tùy chỉnh:
+Chạy với URL tùy chỉnh:
 ```bash
-node index.js <URL_của_bạn>
+node index.js <URL>
 ```
 
-Ví dụ:
+### API Server Mode
+
+Khởi động server:
 ```bash
-node index.js https://api.example.com/data
+npm run server
 ```
+
+Server sẽ chạy tại `http://localhost:3000`
+
+## API Endpoints
+
+### GET /
+Hiển thị thông tin API và danh sách endpoints
+
+### GET /nguonc
+Fetch nội dung từ URL mặc định hoặc custom URL
+- Query params: `?url=<target_url>` (optional)
+
+### GET /fetch
+Fetch nội dung từ bất kỳ URL nào
+- Query params: `?url=<target_url>` (required)
 
 ## Tính năng
 
-- Fetch nội dung từ bất kỳ URL nào
-- Tự động stringify kết quả thành JSON format
-- Hiển thị kết quả với pretty print (indent 2 spaces)
-- Xử lý lỗi chi tiết
+- ✅ Fetch nội dung từ bất kỳ URL nào
+- ✅ REST API endpoints
+- ✅ CORS enabled
+- ✅ Xử lý lỗi chi tiết
+- ✅ JSON response format
 
 ## Yêu cầu
 
-- Node.js 14.x trở lên
+- Node.js >= 18.0.0
 - npm hoặc yarn
+
+## Dependencies
+
+- express - Web framework
+- axios - HTTP client
+- cors - CORS middleware
